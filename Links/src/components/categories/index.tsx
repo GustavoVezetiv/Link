@@ -3,6 +3,8 @@ import { FlatList } from "react-native";
 import { Category } from "@/components/category";
 import { styles } from "./styles";
 
+
+//verificar porque não esta marcando como selecionado o tipo do arquivo/pagina
 type Props = {
   selected: string
   onChange: (category: string) => void

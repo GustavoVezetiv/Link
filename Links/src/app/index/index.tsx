@@ -2,6 +2,7 @@ import { View, Image, TouchableOpacity, FlatList, Modal, Text } from "react-nati
 import { MaterialIcons } from "@expo/vector-icons"
 import { Category } from "@/components/category"
 import { router } from "expo-router"
+import { useState } from "react"
 
 import { styles } from "./styles"
 import { colors } from "@/styles/colors"
@@ -10,9 +11,13 @@ import { Link } from "@/components/link"
 import { Option } from "@/components/option"
 import { Categories } from "@/components/categories"
 import { Button } from "@/components/button"
+import { categories } from '@/utils/categories'
 
 
 export default function Index(){
+    const [category, setCategory] = useState(categories[0].name)
+    const [name, setName] = useState("")
+    const [url, setUrl] = useState("")
     return(
         <View style={styles.container}>
             <View style={styles.header}>
@@ -22,7 +27,7 @@ export default function Index(){
                 </TouchableOpacity>
             </View>
 
-            <Categories/>
+            <Categories onChange={setCategory} selected={category}/>
 
 
             <FlatList

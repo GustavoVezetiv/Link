@@ -7,6 +7,7 @@ import { Categories } from "@/components/categories";
 import { Input } from "@/components/input";
 import { Button } from "@/components/button";
 import { useState } from "react";
+import { linkStorage } from "@/storage/link-storage";
 
 export default function Add() {
   const [category, setCategory] = useState("")
@@ -14,6 +15,7 @@ export default function Add() {
   const [url, setUrl] = useState("")
 
   async function handleAdd() {
+    //verifica se os campos estão vazios - trim remove os espaços em branco
     try {
       if (!category.trim()) {
         return Alert.alert("Categoria", "Selecione a categoria")
@@ -25,6 +27,19 @@ export default function Add() {
         return Alert.alert("URL", "Informe a URL")
       }
 
+      await linkStorage.save({
+        id: new Date().getTime().toString(),
+        category,
+        name,
+        url
+      })
+
+      Alert.alert("Sucesso", "Link salvo com sucesso", [
+        { 
+          text: "Ok",
+          onPress: () => router.back()
+        },
+      ])
     } catch (error) {
       Alert.alert("Erro", "Não foi possível salvar o link")
       console.log(error)     

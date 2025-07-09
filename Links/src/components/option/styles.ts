@@ -5,7 +5,7 @@ export const styles = StyleSheet.create({
     container: {
         flexDirection: "row",
         alignItems: "center",
-        gap: 5,
+        gap: 8,
         
     },
     primaryTitle:{
@@ -17,5 +17,9 @@ export const styles = StyleSheet.create({
         color: colors.gray[400],
         fontSize: 16,
     },
+    name: {
+    color: colors.white[100],
+    fontSize: 16,
+  },
 
 })

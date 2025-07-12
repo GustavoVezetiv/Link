@@ -169,7 +169,7 @@ async function handleArchive() {
         </TouchableOpacity>
 
         <TouchableOpacity onPress={() => router.navigate("/archived/archived")}>
-          <MaterialIcons name='close' size={32} color={colors.green[300]}/>
+          <MaterialIcons name='delete' size={32} color={colors.green[300]}/>
         </TouchableOpacity>
         
         <TouchableOpacity onPress={() => router.navigate("/add")}>
